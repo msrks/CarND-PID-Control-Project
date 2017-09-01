@@ -1,3 +1,5 @@
+#include <uWS/uWS.h>
+
 #ifndef PID_H
 #define PID_H
 
@@ -12,11 +14,20 @@ public:
 
   /*
   * Coefficients
-  */ 
+  */
   double Kp;
   double Ki;
   double Kd;
 
+  std::vector<double> p;
+  std::vector<double> dp;
+  int step;
+  double total_err;
+  double best_err;
+  int idx;
+  bool rollback;
+  bool initialized;
+  
   /*
   * Constructor
   */
@@ -41,6 +52,12 @@ public:
   * Calculate the total PID error.
   */
   double TotalError();
+
+  double SteerValue();
+
+  void Restart(uWS::WebSocket<uWS::SERVER> ws);
+
+  void Twiddle(uWS::WebSocket<uWS::SERVER> ws);
 };
 
 #endif /* PID_H */
