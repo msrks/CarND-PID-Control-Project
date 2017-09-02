@@ -24,6 +24,8 @@
 * low I Gain: take long time to converge
 * high I Gain: unstable (normal controller fluctuations will be exaggerated)
 
+<img width="500" alt="PID fig" src="PID.png">
+
 >Visual aids are encouraged, i.e. record of a small video of the car in the simulator and describe what each component is set to.
 
 https://youtu.be/fr0zbR_6ecQ
